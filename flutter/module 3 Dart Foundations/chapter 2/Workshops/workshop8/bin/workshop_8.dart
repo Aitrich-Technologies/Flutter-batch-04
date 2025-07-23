@@ -14,6 +14,7 @@ abstract class Call {
 
 class Mobile implements Message, Call {
   Mobile() {
+    print("The mobile must do these functions");
 
   }
 
