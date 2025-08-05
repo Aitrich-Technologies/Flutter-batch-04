@@ -5,10 +5,10 @@ import 'package:exe1/exe1.dart' as exe1;
 
 void main(List<String> arguments) {
   try {
-    print('Enter a number');
+    print('Enter a number:');
     String? x = stdin.readLineSync();
     int a = int.parse(x!);
-    print('enter second');
+    print('enter second:');
     int y = int.parse(stdin.readLineSync()!);
     int re = a ~/ y;
     print('$re');
