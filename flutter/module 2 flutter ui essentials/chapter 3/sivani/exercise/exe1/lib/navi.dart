@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
-class Navi extends StatelessWidget{
-      Navi({super.key});
+class Navi extends StatelessWidget {
+  Navi({super.key});
 
-      @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pink,
         title: Text('Home'),
         centerTitle: true,
-        actions: [IconButton(icon: Icon(Icons.notifications),onPressed: (){
-          Navigator.pushNamed(context, '/notification');
-        },
-         )],
+        actions: [
+          IconButton(
+            icon: Icon(Icons.notifications),
+            onPressed: () {
+              Navigator.pushNamed(context, '/notification');
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -21,11 +25,11 @@ class Navi extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 10),
-              Image.asset('assets/bluee.jpg',width: 400,height: 400,),
+              Image.asset('assets/bluee.jpg', width: 400, height: 400),
               SizedBox(height: 10),
-              Image.asset('assets/car.jpg',width: 400,height: 400,),
-               SizedBox(height: 10),
-              Image.asset('assets/white.jpg',width: 400,height: 400,),
+              Image.asset('assets/car.jpg', width: 400, height: 400),
+              SizedBox(height: 10),
+              Image.asset('assets/white.jpg', width: 400, height: 400),
             ],
           ),
         ),
@@ -34,10 +38,10 @@ class Navi extends StatelessWidget{
   }
 }
 
-class notification extends StatelessWidget{
-      notification({super.key});
+class notification extends StatelessWidget {
+  notification({super.key});
 
-      @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -58,15 +62,15 @@ class notification extends StatelessWidget{
               child: Row(
                 children: [
                   Icon(Icons.person_pin_circle_outlined),
-                   SizedBox(width: 50),
+                  SizedBox(width: 50),
                   Text('Notifications'),
-                  SizedBox(width: 300),
+                  SizedBox(width: 200),
                   Icon(Icons.delete),
                 ],
               ),
             ),
-             SizedBox(height: 30.0),
-              Card(
+            SizedBox(height: 30.0),
+            Card(
               color: Colors.white,
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -75,15 +79,15 @@ class notification extends StatelessWidget{
               child: Row(
                 children: [
                   Icon(Icons.person_pin_circle_outlined),
-                   SizedBox(width: 50),
+                  SizedBox(width: 50),
                   Text('Notifications'),
-                  SizedBox(width: 300),
+                  SizedBox(width: 200),
                   Icon(Icons.delete),
                 ],
               ),
             ),
-             SizedBox(height: 30.0),
-              Card(
+            SizedBox(height: 30.0),
+            Card(
               color: Colors.white,
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -92,15 +96,15 @@ class notification extends StatelessWidget{
               child: Row(
                 children: [
                   Icon(Icons.person_pin_circle_outlined),
-                   SizedBox(width: 50),
+                  SizedBox(width: 50),
                   Text('Notifications'),
-                  SizedBox(width: 300),
+                  SizedBox(width: 200),
                   Icon(Icons.delete),
                 ],
               ),
             ),
-              SizedBox(height: 30.0),
-              Card(
+            SizedBox(height: 30.0),
+            Card(
               color: Colors.white,
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -109,15 +113,15 @@ class notification extends StatelessWidget{
               child: Row(
                 children: [
                   Icon(Icons.person_pin_circle_outlined),
-                   SizedBox(width: 50),
+                  SizedBox(width: 50),
                   Text('Notifications'),
-                  SizedBox(width: 300),
+                  SizedBox(width: 200),
                   Icon(Icons.delete),
                 ],
               ),
             ),
-             SizedBox(height: 30.0),
-              Card(
+            SizedBox(height: 30.0),
+            Card(
               color: Colors.white,
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -126,15 +130,15 @@ class notification extends StatelessWidget{
               child: Row(
                 children: [
                   Icon(Icons.person_pin_circle_outlined),
-                   SizedBox(width: 50),
+                  SizedBox(width: 50),
                   Text('Notifications'),
-                  SizedBox(width: 300),
+                  SizedBox(width: 200),
                   Icon(Icons.delete),
                 ],
               ),
             ),
-             SizedBox(height: 30.0),
-              Card(
+            SizedBox(height: 30.0),
+            Card(
               color: Colors.white,
               elevation: 4,
               shape: RoundedRectangleBorder(
@@ -143,9 +147,9 @@ class notification extends StatelessWidget{
               child: Row(
                 children: [
                   Icon(Icons.person_pin_circle_outlined),
-                   SizedBox(width: 50),
+                  SizedBox(width: 50),
                   Text('Notifications'),
-                  SizedBox(width: 300),
+                  SizedBox(width: 200),
                   Icon(Icons.delete),
                 ],
               ),
