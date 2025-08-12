@@ -7,7 +7,7 @@ void main(List<String> arguments) {
     print('Enter the First :');
     String? x = stdin.readLineSync();
     int a = int.parse(x!);
-    print('Enter the Second');
+    print('Enter the Second : ');
     int y = int.parse(stdin.readLineSync()!);
     var re = a ~/ y;
     print('$re');
