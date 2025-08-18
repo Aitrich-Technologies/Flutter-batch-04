@@ -22,9 +22,9 @@ class _Buyers19State extends State<Buyers19> {
     });
   }
 
-  String? selectedValue3;
+  String? selectedValue3='Breed';
 
-  final List<String> items3 = ['Breed','breed1', 'breed2', 'breed3', 'breed4'];
+  final List<String> items3 = ['breed1', 'breed2', 'breed3', 'breed4'];
   bool isChecked2 = false;
   bool isCheckedvac = false;
   bool isCheckedcer = false;
@@ -63,7 +63,7 @@ class _Buyers19State extends State<Buyers19> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: DropdownButton(value: selectedValue3,
-                            items: ['Breed','breed 1', 'breed 2', 'breed 3','breed 4'].map<DropdownMenuItem<String>>
+                            items: ['breed 1', 'breed 2', 'breed 3','breed 4'].map<DropdownMenuItem<String>>
                             ((String value){
                               return DropdownMenuItem<String>(value: value,child: Text(value),);
                             }).toList(),
