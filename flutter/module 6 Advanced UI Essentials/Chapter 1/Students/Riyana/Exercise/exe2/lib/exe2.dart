@@ -39,10 +39,7 @@ class exe2 extends StatelessWidget{
         ),
       ),
       body: Center(child: Text('Home Page',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),),
-    );
-
-  }  
-  }
+    ); }    }
 
   class profile extends StatelessWidget{
     profile({super.key});
@@ -51,6 +48,7 @@ class exe2 extends StatelessWidget{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
+        
         backgroundColor: Colors.amber,
         title: Text('Profile'),centerTitle: true,
       ),
