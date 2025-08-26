@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+
 class calculator extends StatefulWidget {
   const calculator({super.key});
   @override
   State<calculator> createState() => _calcState();
 }
+
 class _calcState extends State<calculator> {
   String _output = "0";
   String _input = "";
@@ -21,12 +23,14 @@ class _calcState extends State<calculator> {
         _num1 = 0;
         _operator = "";
         _shouldClearDisplay = false;
+
       } else if (buttonText == "+/-") {
         if (_output != "0") {
           _output = _output.startsWith('-') ? _output.substring(1) : "-$_output";
           _input = _output;
-          _expression = _expression + " "; 
+          _expression = _expression + " ";
         }
+
       } else if (buttonText == "%") {
         if (_input.isNotEmpty && double.tryParse(_input) != null) {
           double value = double.parse(_input) / 100;
@@ -34,63 +38,103 @@ class _calcState extends State<calculator> {
           _output = _input;
           _expression += " %";
         }
+
       } else if ("+-×÷=".contains(buttonText)) {
+        // Operators and equals
         if (_input.isEmpty && buttonText != "=") {
           if (_output != "0") {
             _operator = buttonText;
             _shouldClearDisplay = true;
-            _expression += " $_operator"; 
+            _expression += " $_operator";
           }
           return;
         }
 
-       if (buttonText == "=") {
-  _calculate();
-} else {
-  if (_operator.isNotEmpty && !_shouldClearDisplay) {
-    _calculate();
-    _num1 = double.parse(_output);
-  } else {
-    _num1 = double.parse(_input);
-  }
+        if (buttonText == "=") {
+          _calculate();
+          // Optional: reflect "=" in expression (uncomment if you want it)
+          // if (!_expression.endsWith("=")) _expression += " =";
+        } else {
+          if (_operator.isNotEmpty && !_shouldClearDisplay) {
+            _calculate();
+            _num1 = double.parse(_output);
+          } else {
+            _num1 = double.parse(_input);
+          }
 
-  _operator = buttonText;
-  _shouldClearDisplay = true;
+          _operator = buttonText;
+          _shouldClearDisplay = true;
 
+          // Normalize the operator spacing checks (always with leading space)
+          if (_expression.endsWith(' +') ||
+              _expression.endsWith(' -') ||
+              _expression.endsWith(' ×') ||
+              _expression.endsWith(' ÷')) {
+            _expression =
+                _expression.substring(0, _expression.length - 2) + " $_operator";
+          } else {
+            // Append operator after current input
+            if (_expression.isEmpty) {
+              _expression = _input + " $_operator";
+            } else {
+              _expression += " $_operator";
+            }
+          }
+        }
 
-   if (_expression.endsWith(' +') ||
-      _expression.endsWith(' -') ||
-      _expression.endsWith('×') ||
-      _expression.endsWith(' ÷')) {
-
-    _expression =
-        _expression.substring(0, _expression.length - 2) + " $_operator";
-  } else {
-    _expression += " $_operator";
-  }
-}}
- else {
+      } else {
+        // Numbers and '.'
         if (_shouldClearDisplay) {
           _input = "";
           _shouldClearDisplay = false;
         }
-        if (_input == "0" && buttonText != ".") {
-          _input = buttonText;
-        } else if (_input.contains(".") && buttonText == ".") {
-          return;
+
+        if (buttonText == ".") {
+          // If nothing typed yet, start with "0."
+          if (_input.isEmpty) {
+            _input = "0.";
+          } else if (!_input.contains(".")) {
+            _input += ".";
+          } else {
+            // Already has a decimal, ignore
+            return;
+          }
         } else {
-          _input += buttonText;
+          // Digits 0-9
+          // Only replace the leading "0" if there is no decimal point
+          if (_input == "0" && !_input.contains(".")) {
+            _input = buttonText;
+          } else {
+            _input += buttonText;
+          }
         }
+
         _output = _input;
 
-        if (_expression.endsWith("=")) {
+        // --- Keep the expression in sync while typing ---
+        if (_expression.endsWith("=") || _expression.isEmpty) {
+          // Fresh start after "=", or beginning
           _expression = _input;
+        } else if (_expression.endsWith(" +") ||
+                   _expression.endsWith(" -") ||
+                   _expression.endsWith(" ×") ||
+                   _expression.endsWith(" ÷")) {
+          // Just pressed an operator; start showing the new number
+          _expression += " " + _input;
         } else {
-          _expression += _input.length == 1 ? _input : buttonText;
+          // We're continuing to type the current number:
+          // replace only the last number token after the last space
+          int lastSpace = _expression.lastIndexOf(' ');
+          if (lastSpace == -1) {
+            _expression = _input;
+          } else {
+            _expression = _expression.substring(0, lastSpace + 1) + _input;
+          }
         }
       }
     });
   }
+
   void _calculate() {
     if (_operator.isEmpty || _input.isEmpty) {
       return;
@@ -130,7 +174,8 @@ class _calcState extends State<calculator> {
     _operator = "";
     _shouldClearDisplay = true;
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
@@ -264,6 +309,7 @@ class _calcState extends State<calculator> {
     );
   }
 }
+
 class CalculatorButton extends StatelessWidget {
   final String text;
   final Color? color;
@@ -279,7 +325,8 @@ class CalculatorButton extends StatelessWidget {
     required this.onPressed,
     this.flex = 1,
   });
-@override
+
+  @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: flex,
