@@ -78,19 +78,43 @@ class _calcState extends State<Calculator> {
           _input = "";
           _shouldClearDisplay = false;
         }
-        if (_input == "0" && buttonText != ".") {
-          _input = buttonText;
-        } else if (_input.contains(".") && buttonText == ".") {
-          return;
+
+        if (buttonText == ".") {
+          if (_input.isEmpty) {
+            _input = "0.";
+          } else if (!_input.contains(".")) {
+            _input += ".";
+          } else {
+            return;
+          }
         } else {
-          _input += buttonText;
+          if (_input == "0") {
+            _input = buttonText;
+          } else if (_input.isEmpty) {
+            _input = buttonText;
+          } else {
+            _input += buttonText;
+          }
         }
+
         _output = _input;
 
         if (_expression.endsWith("=")) {
           _expression = _input;
+        } else if (_expression.isEmpty) {
+          _expression = _input;
         } else {
-          _expression += _input.length == 1 ? _input : buttonText;
+          if (_expression.endsWith(" +") ||
+              _expression.endsWith(" -") ||
+              _expression.endsWith(" ×") ||
+              _expression.endsWith(" ÷")) {
+            _expression += " " + _input;
+          } else {
+            List<String> parts = _expression.split(" ");
+            if (parts.length == 1) {
+              _expression = _input;
+            }
+          }
         }
       }
     });

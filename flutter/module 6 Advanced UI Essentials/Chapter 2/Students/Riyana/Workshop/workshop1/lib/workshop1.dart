@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+class ThemingExample45 extends StatefulWidget {
+  @override
+  _ThemingExample45State createState() => _ThemingExample45State();
+}
+
+class _ThemingExample45State extends State<ThemingExample45> {
+  bool isDarkMode = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Dynamic Theming Example'),
+        ),
+       body: Center(
+          // Add your circle avatar properties here
+             child:      
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        CircleAvatar(radius: 80,),
+                        SizedBox(height: 20,),
+                        TextField(decoration: InputDecoration(labelText: 'Name'),),
+                        SizedBox(height: 20,),
+                        TextField(decoration: InputDecoration(labelText: 'Phone Number'),),
+                        SizedBox(height: 20,),
+                        TextField(decoration: InputDecoration(labelText: 'Password'),),
+                        SizedBox(height: 50,),
+                        ElevatedButton(
+                                        onPressed: () {
+                        setState(() {
+                          isDarkMode = !isDarkMode;
+                        });
+                                        },
+                                        child: Text('Toggle Theme'),
+                                      ),
+                      ],
+                    ),
+                  ),
+            
+       ), ),
+            );
+          
+        
+      
+    
+  }
+}
