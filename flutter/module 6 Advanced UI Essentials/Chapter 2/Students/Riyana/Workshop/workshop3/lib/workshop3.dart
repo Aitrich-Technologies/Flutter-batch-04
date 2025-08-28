@@ -106,7 +106,7 @@ class _State extends State<MyApp88> {
                       _submit();
                       if (usernameError == null && passwordError == null) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Login Succesfully")));
+                            SnackBar(content: Text("Login succefully")));
                       } else if ((usernameError?.isNotEmpty ?? false) &&
                           (passwordError?.isNotEmpty ?? false)) {
                         ScaffoldMessenger.of(context).showSnackBar(
