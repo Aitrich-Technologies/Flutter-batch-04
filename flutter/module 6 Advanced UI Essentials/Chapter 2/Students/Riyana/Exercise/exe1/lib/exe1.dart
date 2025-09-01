@@ -96,7 +96,8 @@ void _savefrom(){
                     ),
                   ),SizedBox(height: 20,),
                   TextFormField(controller: namecontroller,
-                  decoration: InputDecoration(labelText: 'Name',errorText: usernameerror,border: OutlineInputBorder(borderRadius: BorderRadius.circular(2))),
+                  decoration: InputDecoration(labelText: 'Name',errorText: usernameerror,
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(2))),
                  onChanged: (value) {
                    setState(() {
                      usernameerror=validatename(value);
@@ -104,7 +105,8 @@ void _savefrom(){
                  },
                   ),SizedBox(height: 20,),
                    TextFormField(controller: emailcontroller,
-                  decoration: InputDecoration(labelText: 'Email',errorText: emailerror,border: OutlineInputBorder(borderRadius: BorderRadius.circular(2))),
+                  decoration: InputDecoration(labelText: 'Email',errorText: emailerror,
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(2))),
                  onChanged: (value) {
                    setState(() {
                      emailerror=validateemail(value);
@@ -117,14 +119,17 @@ void _savefrom(){
                    inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly
                    ],
-                  decoration: InputDecoration(labelText: 'Phone Number',errorText: phoneerror,border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),),
+                  decoration: InputDecoration(labelText: 'Phone Number',errorText: phoneerror,
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),),
                  onChanged: (value) {
                    setState(() {
                      phoneerror=validatephone(value);
                    });
                  },
                   ),SizedBox(height:20,),
-                  TextFormField(controller: addrescontrol,maxLines: 5,decoration: InputDecoration(labelText: 'Address',border: OutlineInputBorder(borderRadius: BorderRadius.circular(2))),),
+                  TextFormField(controller: addrescontrol,maxLines: 5,
+                  decoration: InputDecoration(labelText: 'Address',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(2))),),
                   SizedBox(height: 30,),
                   Center(
                     child: ElevatedButton(onPressed: (){
