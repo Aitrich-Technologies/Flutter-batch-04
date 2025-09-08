@@ -112,21 +112,32 @@ void _savefrom(){
                      emailerror=validateemail(value);
                    });
                  },
-                  ),
-                  SizedBox(height: 20,),
-                   TextFormField(controller: phonecontroller,
-                   keyboardType: TextInputType.phone,
-                   inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly
-                   ],
-                  decoration: InputDecoration(labelText: 'Phone Number',errorText: phoneerror,
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),),
-                 onChanged: (value) {
-                   setState(() {
-                     phoneerror=validatephone(value);
-                   });
-                 },
-                  ),SizedBox(height:20,),
+                  ),SizedBox(height: 20,),
+                 Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    TextFormField(
+      controller: phonecontroller,
+      keyboardType: TextInputType.phone,maxLength: 10,
+      inputFormatters: [
+        FilteringTextInputFormatter.digitsOnly,
+        LengthLimitingTextInputFormatter(10)
+     ],
+      decoration: InputDecoration(
+        labelText: 'Phone Number',
+        errorText: phoneerror,
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(2)),
+        counterText: '', 
+      ),
+      onChanged: (value) {
+        setState(() {
+          phoneerror = validatephone(value);
+        });
+      },
+    ),
+  ],
+)
+                 ,SizedBox(height:20,),
                   TextFormField(controller: addrescontrol,maxLines: 5,
                   decoration: InputDecoration(labelText: 'Address',
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(2))),),
@@ -134,12 +145,13 @@ void _savefrom(){
                   Center(
                     child: ElevatedButton(onPressed: (){
                       setState(() {
-                       if (usernameerror != null || emailerror != null || phoneerror != null || addrescontrol.text.isEmpty) {
+                       if (usernameerror != null || emailerror != null ||
+                        phoneerror != null || addrescontrol.text.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Please fill all fields correctly")),
         );
       } else {
-        // If all are valid, save and clear
+      
         _savefrom();
         
       }
