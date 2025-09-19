@@ -86,7 +86,7 @@ class CarouselState extends State<Carousel> {
             auto = !auto;
           });
         },
-        child: const Icon(Icons.stop_sharp),
+        child: Icon(auto?Icons.stop_sharp:Icons.pause),
       ),
     );
   }
