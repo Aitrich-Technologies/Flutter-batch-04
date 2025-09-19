@@ -1,9 +1,6 @@
 import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 
-
-
-
 class Flower extends StatefulWidget {
   @override
   _FlowerState createState() => _FlowerState();
@@ -31,8 +28,10 @@ class _FlowerState extends State<Flower> {
                 children: <TextSpan>[
                   TextSpan(
                     text: _colorName,
-                    style:
-                        TextStyle(color: _color, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      color: _color,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   TextSpan(text: ' button is clicked.'),
                 ],
@@ -42,53 +41,67 @@ class _FlowerState extends State<Flower> {
           toggleButtonColor: Colors.pink,
           items: [
             CircularMenuItem(
-                icon: Icons.home,
-                color: Colors.green,
-                onTap: () {
-                  setState(() {
-                    _color = Colors.green;
-                    _colorName = 'Green';
-                  });
-                }),
+              icon: Icons.home,
+              color: Colors.green,
+              onTap: () {
+                setState(() {
+                  _color = Colors.green;
+                  _colorName = 'Green';
+                });
+              },
+            ),
             CircularMenuItem(
-                icon: Icons.search,
-                color: Colors.blue,
-                onTap: () {
-                  setState(() {
-                    _color = Colors.blue;
-                    _colorName = 'Blue';
-                  });
-                }),
+              icon: Icons.search,
+              color: Colors.blue,
+              onTap: () {
+                setState(() {
+                  _color = Colors.blue;
+                  _colorName = 'Blue';
+                });
+              },
+            ),
             CircularMenuItem(
-                icon: Icons.settings,
-                color: Colors.orange,
-                onTap: () {
+              icon: Icons.settings,
+              color: Colors.orange,
+              onTap: () {
                 Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const test()),
-  );
-                }),
+                  context,
+                  MaterialPageRoute(builder: (context) => test()),
+                );
+              },
+            ),
             CircularMenuItem(
-                icon: Icons.chat,
-                color: Colors.purple,
-                onTap: () {
-                  setState(() {
-                    _color = Colors.purple;
-                    _colorName = 'Purple';
-                  });
-                }),
+              icon: Icons.chat,
+              color: Colors.purple,
+              onTap: () {
+                setState(() {
+                  _color = Colors.purple;
+                  _colorName = 'Purple';
+                });
+              },
+            ),
             CircularMenuItem(
-                icon: Icons.notifications,
-                color: Colors.brown,
-                onTap: () {
-                  setState(() {
-                    _color = Colors.brown;
-                    _colorName = 'Brown';
-                  });
-                })
+              icon: Icons.notifications,
+              color: Colors.brown,
+              onTap: () {
+                setState(() {
+                  _color = Colors.brown;
+                  _colorName = 'Brown';
+                });
+              },
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class test extends StatelessWidget {
+  test({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(backgroundColor: Colors.orange);
   }
 }

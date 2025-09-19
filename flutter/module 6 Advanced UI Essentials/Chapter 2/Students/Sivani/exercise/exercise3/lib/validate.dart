@@ -104,6 +104,7 @@ class _validate extends State<Validate> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
+              counterText: " ",
               labelText: 'Phone Number',
               errorText: numError,
             ),

@@ -92,8 +92,7 @@ class _reg extends State<exe1> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      CircleAvatar(radius: 60, 
-                      backgroundColor: Colors.black),
+                      CircleAvatar(radius: 60, backgroundColor: Colors.black),
                       SizedBox(width: 40),
                       Text('Change / Delete Photo'),
                     ],
@@ -106,14 +105,12 @@ class _reg extends State<exe1> {
                     labelText: 'Name',
                     errorText: usernameerror,
                     border: OutlineInputBorder(
-                      borderRadius: 
-                      BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(2),
                     ),
                   ),
                   onChanged: (value) {
                     setState(() {
-                      usernameerror = 
-                      validatename(value);
+                      usernameerror = validatename(value);
                     });
                   },
                 ),
@@ -124,24 +121,23 @@ class _reg extends State<exe1> {
                     labelText: 'Email',
                     errorText: emailerror,
                     border: OutlineInputBorder(
-                      borderRadius: 
-                      BorderRadius.circular(2),
+                      borderRadius: BorderRadius.circular(2),
                     ),
                   ),
                   onChanged: (value) {
                     setState(() {
-                      emailerror =
-                      validateemail(value);
+                      emailerror = validateemail(value);
                     });
                   },
                 ),
                 SizedBox(height: 20),
                 TextFormField(
+                  maxLength: 10,
                   controller: phonecontroller,
                   keyboardType: TextInputType.phone,
-                  inputFormatters: [
-                  FilteringTextInputFormatter.digitsOnly],
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   decoration: InputDecoration(
+                    counterText: " ",
                     labelText: 'Phone Number',
                     errorText: phoneerror,
                     border: OutlineInputBorder(
@@ -150,8 +146,7 @@ class _reg extends State<exe1> {
                   ),
                   onChanged: (value) {
                     setState(() {
-                      phoneerror = 
-                      validatephone(value);
+                      phoneerror = validatephone(value);
                     });
                   },
                 ),
@@ -161,10 +156,8 @@ class _reg extends State<exe1> {
                   maxLines: 5,
                   decoration: InputDecoration(
                     labelText: 'Address',
-                    border: 
-                    OutlineInputBorder(
-                    borderRadius:
-                    BorderRadius.circular(2),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(2),
                     ),
                   ),
                 ),
@@ -179,8 +172,7 @@ class _reg extends State<exe1> {
                             addrescontrol.text.isEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              content: 
-                              Text("Please fill all fields correctly"),
+                              content: Text("Please fill all fields correctly"),
                             ),
                           );
                         } else {
@@ -194,8 +186,7 @@ class _reg extends State<exe1> {
                     ),
                     child: Text(
                       'Save',
-                      style: 
-                      TextStyle(fontSize: 20, color: Colors.black),
+                      style: TextStyle(fontSize: 20, color: Colors.black),
                     ),
                   ),
                 ),
