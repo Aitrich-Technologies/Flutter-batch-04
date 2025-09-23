@@ -16,7 +16,7 @@ class home extends State<exe4>{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.network("https://cdn.igp.com/f_auto,q_auto,t_pnopt19prodlp/products/p-teddy-bear-10-inches--39360-m.jpg"),
+            Image.network("https://m.media-amazon.com/images/I/41ZRT2a7kHL._UF1000,1000_QL80_.jpg",width: 200,height: 250,),
             SizedBox(height: 20,),
             Text('HAPPY BEAR'),
             SizedBox(height: 10,),
@@ -24,7 +24,9 @@ class home extends State<exe4>{
             SizedBox(height: 20,),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextField(decoration: InputDecoration(filled: true,fillColor: Colors.blueAccent,labelText: 'Login With Email',prefixIcon: Icon(Icons.email),border: OutlineInputBorder(borderRadius: BorderRadius.circular(50))),),
+              child: TextField(decoration: InputDecoration(filled: true,
+              fillColor: Colors.blueAccent,labelText: 'Login With Email',
+              prefixIcon: Icon(Icons.email),border: OutlineInputBorder(borderRadius: BorderRadius.circular(50))),),
             ),
             SizedBox(height: 30,),
             Padding(
@@ -35,19 +37,19 @@ class home extends State<exe4>{
                 children: [Icon(Icons.facebook),SizedBox(width: 5,),Text('Login With FaceBook')],
               )),
             ),
-SizedBox(height: 20,),
+            SizedBox(height: 20,),
             Row(mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Did not have an account ?'),
                 TextButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => sign()),
-    );
-  },
-  child: Text('Signup'),
-)
+        onPressed: () {
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => sign()),
+         );
+        },
+          child: Text('Signup'),
+        )
 
               ],
             ),
@@ -73,7 +75,7 @@ class sign extends StatefulWidget {
 class _signup extends State<sign> {
   final _formkey = GlobalKey<FormState>();
 
-  // controllers should be class-level, not inside build
+  
   final TextEditingController namecontroller = TextEditingController();
   final TextEditingController emailcontroller = TextEditingController();
   final TextEditingController passwordcontroller = TextEditingController();
@@ -141,7 +143,7 @@ class _signup extends State<sign> {
               Text('Signup on Bear'),
               SizedBox(height: 20),
               Image.network(
-                  "https://cdn.igp.com/f_auto,q_auto,t_pnopt19prodlp/products/p-teddy-bear-10-inches--39360-m.jpg"),
+                  "https://cdn.igp.com/f_auto,q_auto,t_pnopt19prodlp/products/p-teddy-bear-10-inches--39360-m.jpg",width: 200,height: 300,),
               SizedBox(height: 20),
               Text('HAPPY BEAR'),
               SizedBox(height: 10),
@@ -167,9 +169,7 @@ class _signup extends State<sign> {
                 },
               ),
               SizedBox(height: 10),
-
-              /// Email
-              TextFormField(
+         TextFormField(
                 controller: emailcontroller,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.mail),
@@ -188,8 +188,6 @@ class _signup extends State<sign> {
                 },
               ),
               SizedBox(height: 10),
-
-              /// Password
               TextFormField(
                 controller: passwordcontroller,
                 obscureText: true,
@@ -210,33 +208,30 @@ class _signup extends State<sign> {
                 },
               ),
               SizedBox(height: 10),
-
-              /// Button
               ElevatedButton(
                 onPressed: () {
                   setState(() {
                     submit();
-                    if (nameerror == null &&
-                        emailerror == null &&
-                        passworderror == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Register Successfully")),
-                      );
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("Please Fill the fields")),
-                      );
-                    }
-                  });
-                },
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.brown),
+                   if (nameerror == null &&
+    emailerror == null &&
+    passworderror == null &&
+    namecontroller.text.isNotEmpty &&
+    emailcontroller.text.isNotEmpty &&
+    passwordcontroller.text.isNotEmpty) {
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text("Register successfully")),
+  );
+} else {
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text("Please fill the fields correctly")),
+  );
+}    }); }, style:
+   ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 212, 170, 155)),
                 child: Text('LOGIN WITH EMAIL'),
               ),
-              SizedBox(height: 20),
-
-              /// Forgot Password
-              Row(
+              SizedBox(height: 20),Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('Forgot Password ?'),
                   SizedBox(width: 10),

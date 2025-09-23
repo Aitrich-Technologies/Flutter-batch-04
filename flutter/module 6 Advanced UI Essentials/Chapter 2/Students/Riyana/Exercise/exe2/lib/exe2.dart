@@ -7,17 +7,7 @@ class exe2 extends StatefulWidget{
 }
 class _log extends State<exe2>{
   bool isdarkthemeenabled=false;
-  void _changetheme(String iconname){
-    void didChangeDependencies() {
-  super.didChangeDependencies();
-  final brightness = Theme.of(context).brightness;
-  if (brightness == Brightness.dark) {
-    _changetheme('dark_icon'); // Corresponds to the alias/name you defined
-  } else {
-    _changetheme('light_icon');
-  }
-}
-  }
+  
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

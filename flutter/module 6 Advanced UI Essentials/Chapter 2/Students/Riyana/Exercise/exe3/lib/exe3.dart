@@ -20,7 +20,7 @@ class _login extends State<exe3> {
 
   String? validatename(String name) {
     if (RegExp(r'[^[a-zA-Z\s]+$').hasMatch(name)) {
-      return 'Name is required';
+      return 'Name is required only  contain letters';
     }
     return null;
   }
@@ -48,7 +48,7 @@ class _login extends State<exe3> {
   }
 
   void _submit() {
-    // Perform submission logic here
+   
     print("Username: ${nameController.text}");
     print("Phone Number: ${phoneController.text}");
     print("Pincode: ${pinController.text}");
@@ -167,13 +167,16 @@ class _login extends State<exe3> {
                   _submit();
                   if (nameError == null &&
                       phoneError == null &&
-                      pinError == null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Register Succesfully")),
+                      pinError == null&& nameController.text.isNotEmpty &&
+    phoneController.text.isNotEmpty &&
+    pinController.text.isNotEmpty) {
+
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(content: Text("Register successfully")),
                     );
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Please Fill the fields")),
+                      SnackBar(content: Text("Please fill the fields")),
                     );
                   }
                 },

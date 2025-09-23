@@ -58,9 +58,11 @@ class CarouselState extends State<Carousel> {
           
           const SizedBox(
             height: 50,
+            
+          
           ),
-
-         //Implement the vertical carousel here
+         
+                  //Implement the vertical carousel here
 
 
 
